@@ -1,0 +1,85 @@
+<template>
+	<template if:true={showmodal}>
+			<lightning-card class="slds-p-around_medium slds-p-bottom_large slds-scrollable_none">
+
+				<div class=" slds-col slds-grid_align-center slds-theme_shade">
+					<div class="slds-grid slds-wrap slds-grid_align-center slds-p-around_xxx-small">
+						<div class="slds-text-heading_medium">Contact Data Table</div>
+					</div>
+				</div>
+
+				<div class="slds-scrollable_none slds-m-top_medium">
+					<lightning-datatable key-field="id" data={conRecordsToDisplay} columns={contactColumns}
+						show-row-number-column hide-checkbox-column row-number-offset={conOffset}
+						onrowaction={handleConRowAction}>
+					</lightning-datatable>
+				</div>
+				<div class="slds-m-top_medium slds-col slds-grid_align-center slds-theme_shade">
+					<div class="slds-grid slds-wrap slds-grid_align-center slds-p-around_xxx-small">
+
+						<div class="slds-align_absolute-center">
+
+							<lightning-button disabled={disableConPrevButtons} label="<<First"
+								class="slds-p-horizontal_x-small" onclick={conFirstPage}></lightning-button>
+
+							<lightning-button disabled={disableConPrevButtons} label="<Previous"
+								onclick={conPreviousPage}></lightning-button>
+
+							&nbsp;
+							<span class="slds-badge">Showing {conPageNumber} &nbsp;of&nbsp; {conTotalPages}
+								&nbsp;&nbsp;Page(s)</span>
+							&nbsp;
+
+							<lightning-button disabled={disableConNextButtons} label="Next>" onclick={conNextPage}
+								class="slds-p-horizontal_x-small" icon-position="right"></lightning-button>
+
+							<lightning-button disabled={disableConNextButtons} label="Last>>" onclick={conLastPage}
+								icon-position="right"></lightning-button>
+						</div>
+					</div>
+				</div>
+			</lightning-card>
+			<br />
+
+			<lightning-card class="slds-p-around_medium slds-p-bottom_large slds-scrollable_none">
+
+				<div class=" slds-col slds-grid_align-center slds-theme_shade">
+					<div class="slds-grid slds-wrap slds-grid_align-center slds-p-around_xxx-small">
+						<div class="slds-text-heading_medium">Opportunity Data Table</div>
+					</div>
+				</div>
+
+				<div class="slds-scrollable_none slds-m-top_medium">
+
+					<lightning-datatable key-field="id" data={oppRecordsToDisplay} columns={opportunityColumns}
+						show-row-number-column hide-checkbox-column row-number-offset={oppOffset}
+						onrowaction={handleOppRowAction} class="slds-scrollable_none">
+					</lightning-datatable>
+				</div>
+				<div class="slds-m-top_medium slds-col slds-grid_align-center slds-theme_shade">
+					<div class="slds-grid slds-wrap slds-grid_align-center slds-p-around_xxx-small">
+
+						<div class="slds-align_absolute-center">
+
+							<lightning-button disabled={disableOppPrevButtons} label="<<First"
+								class="slds-p-horizontal_x-small" onclick={oppFirstPage}></lightning-button>
+
+							<lightning-button disabled={disableOppPrevButtons} label="<Previous"
+								onclick={oppPreviousPage}></lightning-button>
+
+							&nbsp;
+							<span class="slds-badge">Showing {oppPageNumber} &nbsp;of&nbsp; {oppTotalPages}
+								&nbsp;&nbsp;Page(s)</span>
+							&nbsp;
+
+							<lightning-button disabled={disableOppNextButtons} label="Next>" onclick={oppNextPage}
+								class="slds-p-horizontal_x-small" icon-position="right"></lightning-button>
+
+							<lightning-button disabled={disableOppNextButtons} label="Last>>" onclick={oppLastPage}
+								icon-position="right"></lightning-button>
+						</div>
+					</div>
+				</div>
+			</lightning-card>
+	</template>
+</template>

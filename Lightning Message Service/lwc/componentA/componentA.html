@@ -1,0 +1,50 @@
+<template>
+	<template lwc:if={isReady}>
+
+		<lightning-card>
+			<div class="slds-p-around_medium">
+				<div class=" slds-col slds-grid_align-center slds-theme_shade">
+					<div class="slds-grid slds-wrap slds-grid_align-center slds-p-around_xxx-small">
+						<div class="slds-text-heading_large">Account Data Table</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="slds-p-around_medium">
+				<lightning-datatable key-field="id" data={recordsToDisplay} columns={accountColumns}
+					show-row-number-column hide-checkbox-column onrowaction={handleRowAction}
+					row-number-offset={offset}>
+				</lightning-datatable>
+			</div>
+
+			<div class="slds-p-around_medium">
+				<div class=" slds-col slds-grid_align-center slds-theme_shade">
+					<div class="slds-grid slds-wrap slds-grid_align-center slds-p-around_xxx-small">
+
+						<div class="slds-align_absolute-center">
+
+							<lightning-button disabled={disablePrevButtons} label="<<First"
+								class="slds-p-horizontal_x-small" onclick={firstPage}></lightning-button>
+
+							<lightning-button disabled={disablePrevButtons} label="<Previous"
+								onclick={previousPage}></lightning-button>
+
+							&nbsp;
+							<span class="slds-badge">Showing {pageNumber} &nbsp;of&nbsp; {totalPages}
+								&nbsp;&nbsp;Page(s)</span>
+							&nbsp;
+
+							<lightning-button disabled={disableNextButtons} label="Next>" onclick={nextPage}
+								class="slds-p-horizontal_x-small"></lightning-button>
+
+							<lightning-button disabled={disableNextButtons} label="Last>>"
+								onclick={lastPage}></lightning-button>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</lightning-card>
+
+	</template>
+</template>
